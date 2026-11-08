@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专业课程排课 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">专业课程排课</h2>
+
+        <div class="search-bar">
+            <select id="majorSel" style="min-width:220px;"></select>
+            <select id="semesterSel" style="min-width:180px;"></select>
+            <button class="btn btn-primary" data-action="loadSchedule">查询</button>
+            <button class="btn btn-default" data-action="exportSchedule">导出课表</button>
+        </div>
+
+        <div class="card">
+            <div class="card-header">专业信息</div>
+            <div class="card-body" id="majorInfo"><span style="color:#999;">请选择专业查看课表</span></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">课程表</div>
+            <div class="card-body" id="scheduleBox"><div class="empty-state">请选择专业后查询</div></div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/major-schedule.js"></script>
+</body>
+</html>

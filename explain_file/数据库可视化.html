@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教务管理系统 · 数据库 ER 图</title>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false, theme: 'default', er: { diagramPadding: 20 }, securityLevel: 'loose' });
+mermaid.run({ querySelector: '.mermaid' });
+</script>
+<style>
+  body { font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; margin: 24px; color: #222; }
+  h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 16px; }
+  .legend { font-size: 12px; color: #555; margin-bottom: 16px; line-height: 1.7; }
+  .mermaid { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; }
+  .tip { margin-top: 12px; font-size: 12px; color: #888; }
+</style>
+</head>
+<body>
+<h1>教务管理系统 · 数据库 ER 图（28 张表）</h1>
+<div class="sub">实体关系总览 — 可滚轮缩放、拖拽平移</div>
+<div class="legend">
+  关系标记：<code>||--o{</code> 一对多 · <code>}o--o{</code> 多对多 · 实线为主外键关系<br>
+  领域着色：账号/组织（蓝）· 课程排课（绿）· 选课成绩（橙）· 申请审核（紫）· 安全审计（红）
+</div>
+<pre class="mermaid">
+erDiagram
+    ADMIN ||--o{ OPERATION_LOG : "操作记录"
+    COLLEGE ||--o{ MAJOR : "包含"
+    COLLEGE ||--o{ TEACHER : "所属"
+    COLLEGE ||--o{ COURSE : "开设"
+    MAJOR ||--o{ CLASS : "包含"
+    MAJOR ||--o{ TEACHING_PLAN : "培养方案"
+    CLASS ||--o{ STUDENT : "有"
+    STUDENT ||--o{ ENROLLMENT : "选课"
+    STUDENT ||--o{ EVALUATION : "评教"
+    STUDENT ||--o{ RETake_APPLY : "重修申请"
+    STUDENT ||--o{ STATUS_CHANGE_APPLY : "异动申请"
+    STUDENT ||--o{ PROJECT_APPLY : "项目报名"
+    STUDENT ||--o{ CREDIT_SUBSTITUTE_APPLY : "学分替代"
+    STUDENT ||--o{ INNOVATION_CREDIT : "学分"
+    STUDENT ||--o{ REGISTRATION : "注册"
+    STUDENT ||--o{ CERTIFICATE : "证书"
+    COURSE ||--o{ COURSE_OFFERING : "开课"
+    COURSE ||--o{ TEACHING_PLAN : "计划课程"
+    TEACHER ||--o{ COURSE_OFFERING : "授课"
+    COURSE_OFFERING ||--o{ COURSE_SCHEDULE : "排课"
+    COURSE_OFFERING ||--o{ ENROLLMENT : "被选"
+    COURSE_OFFERING ||--o{ EVALUATION : "被评"
+    COURSE_OFFERING ||--o{ EXAM : "考试"
+    COURSE_OFFERING ||--o{ OFFERING_CLASS : "指定班级"
+    CLASSROOM ||--o{ COURSE_SCHEDULE : "上课地点"
+    CLASSROOM ||--o{ EXAM : "考场"
+    CLASS ||--o{ OFFERING_CLASS : "合班"
+    PROJECT ||--o{ PROJECT_APPLY : "报名"
+
+    ADMIN {
+        int id PK
+        varchar username "登录名"
+        varchar real_name
+        tinyint is_super "超管"
+        tinyint is_active
+    }
+    COLLEGE {
+        int id PK
+        varchar code
+        varchar name
+    }
+    MAJOR {
+        int id PK
+        int college_id FK
+        varchar name
+    }
+    CLASS {
+        int id PK
+        int major_id FK
+        varchar name
+        int grade_year
+    }
+    STUDENT {
+        int id PK
+        varchar username "学号"
+        varchar real_name
+        int class_id FK
+        varchar id_card "AES加密"
+        tinyint is_frozen
+    }
+    TEACHER {
+        int id PK
+        varchar username "工号"
+        varchar real_name
+        int college_id FK
+        varchar title
+        tinyint is_active
+    }
+    COURSE {
+        int id PK
+        varchar code "课程号"
+        varchar name
+        decimal credit
+        varchar type
+    }
+    COURSE_OFFERING {
+        int id PK
+        int course_id FK
+        int teacher_id FK
+        varchar semester
+        int max_count
+        int selected_count
+        int usual_ratio
+        int exam_ratio
+    }
+    OFFERING_CLASS {
+        int id PK
+        int offering_id FK
+        int class_id FK
+    }
+    COURSE_SCHEDULE {
+        int id PK
+        int offering_id FK
+        int weekday
+        int start_section
+        int end_section
+        varchar weeks
+        int classroom_id FK
+    }
+    CLASSROOM {
+        int id PK
+        varchar building
+        varchar room
+        int capacity
+    }
+    ENROLLMENT {
+        int id PK
+        int student_id FK
+        int offering_id FK
+        varchar status
+        decimal total_score
+        decimal grade_point
+    }
+    EXAM {
+        int id PK
+        int offering_id FK
+        date exam_date
+        int classroom_id FK
+        varchar exam_type
+    }
+    EVALUATION {
+        int id PK
+        int student_id FK
+        int offering_id FK
+        varchar type
+        decimal total_score
+        text comment
+    }
+    RETake_APPLY {
+        int id PK
+        int student_id FK
+        int course_id FK
+        varchar status
+    }
+    STATUS_CHANGE_APPLY {
+        int id PK
+        int student_id FK
+        varchar change_type
+        varchar status
+    }
+    PROJECT {
+        int id PK
+        varchar name
+        int max_count
+        int apply_count
+        tinyint is_open
+    }
+    PROJECT_APPLY {
+        int id PK
+        int project_id FK
+        int student_id FK
+        varchar status
+    }
+    CREDIT_SUBSTITUTE_APPLY {
+        int id PK
+        int student_id FK
+        varchar external_course
+        int substitute_course_id FK
+        varchar status
+    }
+    INNOVATION_CREDIT {
+        int id PK
+        int student_id FK
+        varchar item_name
+        decimal credit
+        tinyint is_confirmed
+    }
+    REGISTRATION {
+        int id PK
+        int student_id FK
+        varchar semester
+    }
+    CERTIFICATE {
+        int id PK
+        int student_id FK
+        varchar name
+        varchar cert_no
+    }
+    TEACHING_PLAN {
+        int id PK
+        int major_id FK
+        int course_id FK
+        int semester_no
+    }
+    ANNOUNCEMENT {
+        int id PK
+        varchar title
+        text content
+        tinyint is_top
+        tinyint is_active
+    }
+    OPERATION_LOG {
+        int id PK
+        int admin_id FK
+        varchar action
+        varchar target_table
+        varchar ip_address
+    }
+    LOGIN_CAPTCHA {
+        varchar token PK
+        varchar code
+        datetime created_at
+    }
+    LOGIN_THROTTLE {
+        varchar throttle_key PK
+        int fail_count
+        datetime blocked_until
+    }
+    SECTION_TIME {
+        int id PK
+        int section
+        varchar start_time
+        varchar end_time
+    }
+</pre>
+<div class="tip">提示：核心业务链路为 学生 → 选课(enrollment) → 教学班(course_offering) → 课程(course)；成绩存于 enrollment，评教存于 evaluation。安全表 login_captcha / login_throttle 独立于业务域。</div>
+</body>
+</html>

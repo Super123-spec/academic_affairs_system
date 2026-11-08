@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申请审核 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .review-tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 2px solid var(--border-color); }
+        .review-tab {
+            padding: 10px 22px; cursor: pointer; font-size: 14px; color: #666;
+            border-bottom: 2px solid transparent; margin-bottom: -2px;
+        }
+        .review-tab.active { color: var(--primary-color); border-bottom-color: var(--accent-color); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">申请审核</h2>
+        <div class="review-tabs">
+            <div class="review-tab active" data-type="retake" data-action="switchTab">重修报名</div>
+            <div class="review-tab" data-type="status_change" data-action="switchTab">学籍异动</div>
+            <div class="review-tab" data-type="project" data-action="switchTab">教学项目</div>
+            <div class="review-tab" data-type="credit_substitute" data-action="switchTab">学分替代</div>
+        </div>
+        <div class="search-bar">
+            <select id="statusFilter" data-change="loadList" style="min-width:160px;">
+                <option value="">全部状态</option>
+                <option value="待审核">待审核</option>
+                <option value="已通过">已通过</option>
+                <option value="已拒绝">已拒绝</option>
+            </select>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr id="headRow"></tr></thead>
+                <tbody id="listBody"><tr><td><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/reviews.js"></script>
+</body>
+</html>

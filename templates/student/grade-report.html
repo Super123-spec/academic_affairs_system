@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩总表打印 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel no-print" style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="urp-panel-title" style="margin:0;border:none;">学生成绩总表</div>
+                <button class="btn btn-primary" data-action="print">打印 / 另存为PDF</button>
+            </div>
+            <div class="urp-panel" id="reportArea"><div class="loading"></div></div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/grade-report.js"></script>
+</body>
+</html>

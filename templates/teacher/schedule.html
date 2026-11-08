@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的课表 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-clip"><img src="/static/images/logo.png" alt="校徽"></div>
+                <div class="logo-text">
+                    <div class="logo-title">教务管理系统</div>
+                    <div class="logo-sub">教师端 · 贵阳信息科技学院</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item"><span>工作台</span></a>
+                <a href="offerings.html" class="nav-item"><span>我的开课</span></a>
+                <a href="offering-students.html" class="nav-item"><span>选课名单</span></a>
+                <a href="grades.html" class="nav-item"><span>成绩录入</span></a>
+                <a href="schedule.html" class="nav-item"><span>我的课表</span></a>
+                <a href="evaluations.html" class="nav-item"><span>评教结果</span></a>
+                <a href="profile.html" class="nav-item"><span>个人信息</span></a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="header-title">贵阳信息科技学院 · 教务管理系统（教师端）</div>
+                <div class="user-info">
+                    <span id="userAvatar" style="display:inline-flex;align-items:center;margin-right:8px;"></span><span>欢迎，<strong id="userName">教师</strong></span>
+                    <div class="logout-btn" data-action="logout">退出登录</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h2 class="page-title">我的课表</h2>
+                <div class="search-bar">
+                    <select id="semesterSel" style="min-width:180px;"></select>
+                    <button class="btn btn-primary" data-action="loadSchedule">查询</button>
+                    <button class="btn btn-default" data-action="exportSchedule">导出课表</button>
+                </div>
+                <div class="card"><div class="card-body"><div id="scheduleBox"><div class="loading"></div></div></div></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/teacher.js"></script>
+    <script src="/js/pages/teacher/schedule.js"></script>
+</body>
+</html>

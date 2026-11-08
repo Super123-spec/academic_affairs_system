@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作息时间 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">作息时间</h2>
+
+        <div class="card" style="margin-bottom:16px;">
+            <div class="card-body" style="padding:14px 20px;color:#666;font-size:13px;">
+                设置每节课的开始与结束时间，各端课表会自动显示对应时间。
+                修改后点「保存」生效，学生/教师的课表刷新即可看到新时间。
+            </div>
+        </div>
+
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th style="width:120px;">节次</th><th style="width:200px;">开始时间</th><th style="width:200px;">结束时间</th><th>说明</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="4"><div class="loading"></div></td></tr></tbody>
+            </table>
+            <div style="margin-top:18px;display:flex;gap:10px;">
+                <button class="btn btn-primary" data-action="saveAll">保存</button>
+                <button class="btn btn-default" data-action="loadList">重置</button>
+            </div>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/section-times.js"></script>
+</body>
+</html>

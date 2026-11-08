@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">教师管理</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <input type="text" id="keyword" placeholder="工号 / 姓名">
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">新增教师</button>
+            <button class="btn btn-default" data-action="openImportDialog" data-arg='["teacher","教师","loadList"]'>批量导入</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>头像</th><th>工号</th><th>姓名</th><th>性别</th><th>学院</th><th>职称</th><th>电话</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="9"><div class="loading"></div></td></tr></tbody>
+            </table>
+            <div id="pager" style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:14px;"></div>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="modalTitle">新增教师</span><span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-group"><label>工号 *</label><input type="text" id="f_username"></div>
+                    <div class="form-group"><label>姓名 *</label><input type="text" id="f_realName"></div>
+                </div>
+                <div class="form-row" id="pwRow">
+                    <div class="form-group">
+                        <label>初始密码</label>
+                        <input type="text" id="f_password" value="123456" autocomplete="off">
+                        <p style="color:#888;font-size:12px;margin-top:5px;">默认 123456，教师登录后可自行修改；批量/新建均按此密码</p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>性别</label><select id="f_gender"><option>男</option><option>女</option></select></div>
+                    <div class="form-group"><label>所属学院</label><select id="f_collegeId"><option value="">请选择</option></select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>职称</label>
+                        <select id="f_title"><option>助教</option><option>讲师</option><option>副教授</option><option>教授</option></select>
+                    </div>
+                    <div class="form-group"><label>联系电话</label><input type="text" id="f_phone"></div>
+                </div>
+                <div class="form-group"><label>邮箱</label><input type="email" id="f_email"></div>
+                <div class="form-row">
+                    <div class="form-group"><label>账号状态</label>
+                        <select id="f_active"><option value="1">在职</option><option value="0">停用</option></select>
+                    </div>
+                    <div class="form-group" id="resetPwRow" style="display:none;padding-top:26px;">
+                        <label><input type="checkbox" id="f_resetPw" style="width:auto;"> 重置密码为 123456</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveTeacher">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/teachers.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生选课情况确认 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">学生选课情况确认</div>
+                <div class="search-bar">
+                    <select id="semesterSel" style="min-width:180px;"></select>
+                    <button class="btn btn-primary" data-action="loadList">查询</button>
+                </div>
+                <table class="table">
+                    <thead><tr>
+                        <th>课程号</th><th>课程名称</th><th>学分</th><th>性质</th><th>任课教师</th>
+                        <th>选课时间</th><th>状态</th><th>备注</th>
+                    </tr></thead>
+                    <tbody id="listBody"><tr><td colspan="8"><div class="loading"></div></td></tr></tbody>
+                </table>
+                <p style="margin-top:14px;color:#888;font-size:13px;">请核对选课结果，如有问题请在选课时间内联系教务处。</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/my-enrollments.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学项目报名 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">教学项目报名</div>
+                <div id="projectList"><div class="loading"></div></div>
+            </div>
+            <div class="urp-panel">
+                <div class="urp-panel-title">我的报名记录</div>
+                <table class="table">
+                    <thead><tr><th>项目名称</th><th>类型</th><th>状态</th><th>报名时间</th></tr></thead>
+                    <tbody id="recordBody"><tr><td colspan="4"><div class="loading"></div></td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="applyModal">
+        <div class="modal-content" style="width:460px;">
+            <div class="modal-header">报名：<span id="applyProjectName"></span><span class="modal-close" data-action="closeApplyModal">✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="applyProjectId">
+                <div class="form-group">
+                    <label>报名理由（选填）</label>
+                    <textarea id="applyReason" rows="4" placeholder="请填写报名理由，让老师更了解你"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeApplyModal">取消</button>
+                <button class="btn btn-primary" data-action="submitApply">提交报名</button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/apply-project.js"></script>
+</body>
+</html>

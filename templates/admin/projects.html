@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学项目管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">教学项目管理</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <input type="text" id="keyword" placeholder="项目名称 / 类型">
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">新增项目</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>项目名称</th><th>类型</th><th>学期</th><th>名额/已报</th><th>起止日期</th><th>状态</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="7"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/projects.js"></script>
+</body>
+</html>

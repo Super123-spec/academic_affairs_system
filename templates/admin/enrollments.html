@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选课管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">选课管理</h2>
+        <div class="search-bar">
+            <select id="offeringFilter" style="min-width:260px;"><option value="">全部开课</option></select>
+            <button class="btn btn-primary" data-action="loadList">查询</button>
+            <button class="btn btn-default" data-action="repairCount" title="按实际选课记录重算各教学班的已选人数">重算选课人数</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>学号</th><th>姓名</th><th>课程</th><th>学期</th><th>选课时间</th><th>状态</th><th>总评</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="7"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/enrollments.js"></script>
+</body>
+</html>

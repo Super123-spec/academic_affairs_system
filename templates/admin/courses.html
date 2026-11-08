@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">课程管理</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <input type="text" id="keyword" placeholder="课程号 / 课程名称">
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">新增课程</button>
+            <button class="btn btn-default" data-action="openImportDialog" data-arg='["course","课程","loadList"]'>批量导入</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>课程号</th><th>课程名称</th><th>学分</th><th>学时</th><th>性质</th><th>开课学院</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="7"><div class="loading"></div></td></tr></tbody>
+            </table>
+            <div id="pager" style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:14px;"></div>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="modalTitle">新增课程</span><span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-group"><label>课程号 *</label><input type="text" id="f_code"></div>
+                    <div class="form-group"><label>课程名称 *</label><input type="text" id="f_name"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>学分</label><input type="number" id="f_credit" step="0.5" min="0"></div>
+                    <div class="form-group"><label>学时</label><input type="number" id="f_hours" min="0"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>课程性质</label>
+                        <select id="f_type"><option>必修</option><option>选修</option><option>通识</option><option>实践</option></select>
+                    </div>
+                    <div class="form-group"><label>开课学院</label><select id="f_collegeId"><option value="">请选择</option></select></div>
+                </div>
+                <div class="form-group"><label>课程简介</label><textarea id="f_desc" rows="3"></textarea></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveCourse">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/courses.js"></script>
+</body>
+</html>

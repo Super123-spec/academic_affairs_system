@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="profile-card">
+                    <div class="avatar" id="avatarBox" title="单击修改头像 / 双击放大" style="cursor:pointer;">--</div>
+                    <div>
+                        <div class="p-name"><span id="stuName">加载中...</span><span class="p-role">学生</span>
+                            <button type="button" class="btn btn-sm btn-default" style="margin-left:12px;" data-action="openAvatarUpload">修改头像</button>
+                        </div>
+                        <div class="p-sub" id="stuClass">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="urp-panel">
+                <div class="urp-panel-title">最新公告</div>
+                <div id="announcements"><div class="loading"></div></div>
+            </div>
+
+            <div class="urp-panel">
+                <div class="urp-panel-title">快捷入口</div>
+                <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                    <a href="course-select.html" class="btn btn-primary">自主选课</a>
+                    <a href="my-schedule.html" class="btn btn-default">我的课表</a>
+                    <a href="grades.html" class="btn btn-default">成绩查询</a>
+                    <a href="evaluate.html" class="btn btn-default">教学评价</a>
+                    <a href="registration.html" class="btn btn-default">报到注册</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/index.js"></script>
+</body>
+</html>

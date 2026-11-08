@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查询空闲教室 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">查询空闲教室</div>
+                <div class="search-bar">
+                    <select id="weekdaySel">
+                        <option value="1">周一</option><option value="2">周二</option><option value="3">周三</option>
+                        <option value="4">周四</option><option value="5">周五</option><option value="6">周六</option><option value="7">周日</option>
+                    </select>
+                    <select id="sectionSel">
+                        <option value="1">第1节</option><option value="2">第2节</option><option value="3">第3节</option>
+                        <option value="4">第4节</option><option value="5">第5节</option><option value="6">第6节</option>
+                        <option value="7">第7节</option><option value="8">第8节</option><option value="9">第9节</option><option value="10">第10节</option>
+                    </select>
+                    <button class="btn btn-primary" data-action="loadRooms">查询</button>
+                </div>
+                <table class="table">
+                    <thead><tr><th>教学楼</th><th>教室</th><th>容量</th><th>状态</th></tr></thead>
+                    <tbody id="roomBody"><tr><td colspan="4" class="text-center" style="color:#999">请选择条件查询</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/free-classrooms.js"></script>
+</body>
+</html>

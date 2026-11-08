@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人信息 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-clip"><img src="/static/images/logo.png" alt="校徽"></div>
+                <div class="logo-text">
+                    <div class="logo-title">教务管理系统</div>
+                    <div class="logo-sub">教师端 · 贵阳信息科技学院</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item"><span>工作台</span></a>
+                <a href="offerings.html" class="nav-item"><span>我的开课</span></a>
+                <a href="offering-students.html" class="nav-item"><span>选课名单</span></a>
+                <a href="grades.html" class="nav-item"><span>成绩录入</span></a>
+                <a href="schedule.html" class="nav-item"><span>我的课表</span></a>
+                <a href="evaluations.html" class="nav-item"><span>评教结果</span></a>
+                <a href="profile.html" class="nav-item"><span>个人信息</span></a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="header-title">贵阳信息科技学院 · 教务管理系统（教师端）</div>
+                <div class="user-info">
+                    <span id="userAvatar" style="display:inline-flex;align-items:center;margin-right:8px;"></span><span>欢迎，<strong id="userName">教师</strong></span>
+                    <div class="logout-btn" data-action="logout">退出登录</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h2 class="page-title">个人信息</h2>
+                <div id="mustChangeTip" style="display:none;background:#fffbe6;border:1px solid #ffe58f;border-left:4px solid #d48806;border-radius:4px;padding:12px 18px;margin-bottom:16px;color:#ad6800;font-size:14px;">
+                    ⚠ 首次登录请先修改下方密码，修改成功后才能正常使用系统
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="avatar-upload" style="margin-bottom:18px;">
+                            <div class="avatar-preview" id="avatarPreview"><span id="avatarPreviewText">头像</span></div>
+                            <div class="avatar-actions">
+                                <button type="button" class="btn btn-primary" data-action="openAvatarUpload">修改头像</button>
+                                <span class="avatar-hint">仅教师本人可修改自己的头像</span>
+                            </div>
+                        </div>
+                        <div id="profileBox"><div class="loading"></div></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">修改密码</div>
+                    <div class="card-body">
+                        <form id="pwForm" style="max-width:480px;">
+                            <div class="form-row">
+                                <div class="form-group"><label>原密码</label><input type="password" id="oldPw" required></div>
+                                <div class="form-group"><label>新密码（至少8位，且包含字母和数字）</label><input type="password" id="newPw" required></div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">修改密码</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/teacher.js"></script>
+    <script src="/js/pages/teacher/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩录入 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-clip"><img src="/static/images/logo.png" alt="校徽"></div>
+                <div class="logo-text">
+                    <div class="logo-title">教务管理系统</div>
+                    <div class="logo-sub">教师端 · 贵阳信息科技学院</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item"><span>工作台</span></a>
+                <a href="offerings.html" class="nav-item"><span>我的开课</span></a>
+                <a href="offering-students.html" class="nav-item"><span>选课名单</span></a>
+                <a href="grades.html" class="nav-item"><span>成绩录入</span></a>
+                <a href="schedule.html" class="nav-item"><span>我的课表</span></a>
+                <a href="evaluations.html" class="nav-item"><span>评教结果</span></a>
+                <a href="profile.html" class="nav-item"><span>个人信息</span></a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="header-title">贵阳信息科技学院 · 教务管理系统（教师端）</div>
+                <div class="user-info">
+                    <span id="userAvatar" style="display:inline-flex;align-items:center;margin-right:8px;"></span><span>欢迎，<strong id="userName">教师</strong></span>
+                    <div class="logout-btn" data-action="logout">退出登录</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h2 class="page-title">成绩录入</h2>
+                <div class="search-bar">
+                    <select id="offeringSel" style="min-width:260px;"></select>
+                    <button class="btn btn-primary" data-action="loadGrades">加载名单</button>
+                    <button class="btn btn-default" data-action="openImport">批量导入成绩</button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p id="ratioHint" style="color:#888;font-size:13px;margin-bottom:12px;">总评成绩按课程设置的平时/考试比例自动计算（可在管理员开课管理中设置）。</p>
+                        <table class="table">
+                            <thead><tr>
+                                <th data-action="sortBy" data-arg='["username"]' style="cursor:pointer;user-select:none;" title="点击排序">学号 <span id="sort-username"></span></th>
+                                <th data-action="sortBy" data-arg='["real_name"]' style="cursor:pointer;user-select:none;" title="点击排序">姓名 <span id="sort-real_name"></span></th>
+                                <th data-action="sortBy" data-arg='["class_name"]' style="cursor:pointer;user-select:none;" title="点击排序">班级 <span id="sort-class_name"></span></th>
+                                <th data-action="sortBy" data-arg='["usual_score"]' style="cursor:pointer;user-select:none;" title="点击排序">平时成绩 <span id="sort-usual_score"></span></th>
+                                <th data-action="sortBy" data-arg='["exam_score"]' style="cursor:pointer;user-select:none;" title="点击排序">考试成绩 <span id="sort-exam_score"></span></th>
+                                <th data-action="sortBy" data-arg='["total_score"]' style="cursor:pointer;user-select:none;" title="点击排序">当前总评 <span id="sort-total_score"></span></th>
+                            </tr></thead>
+                            <tbody id="gradeBody"><tr><td colspan="6" class="text-center" style="color:#999">请选择课程</td></tr></tbody>
+                        </table>
+                        <div id="saveBar" style="display:none;margin-top:16px;text-align:right;">
+                            <button class="btn btn-primary" data-action="saveGrades">保存成绩</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/teacher.js"></script>
+    <script src="/js/pages/teacher/grades.js"></script>
+</body>
+</html>

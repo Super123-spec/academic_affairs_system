@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排课管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">排课管理</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <select id="offeringFilter"><option value="">全部开课</option></select>
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">新增排课</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>课程</th><th>教师</th><th>班级</th><th>学期</th><th>星期</th><th>节次</th><th>周次</th><th>单双周</th><th>教室</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="10"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="modalTitle">新增排课</span><span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-group"><label>开课（教学班）*</label><select id="f_offeringId"></select></div>
+                <div class="form-row">
+                    <div class="form-group"><label>星期</label>
+                        <select id="f_weekday"><option value="1">周一</option><option value="2">周二</option><option value="3">周三</option><option value="4">周四</option><option value="5">周五</option><option value="6">周六</option><option value="7">周日</option></select>
+                    </div>
+                    <div class="form-group"><label>教室</label><select id="f_classroomId"><option value="">待定</option></select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>开始节次</label><input type="number" id="f_start" min="1" max="10" value="1"></div>
+                    <div class="form-group"><label>结束节次</label><input type="number" id="f_end" min="1" max="10" value="2"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>上课周次</label><input type="text" id="f_weeks" value="1-16" placeholder="如 1-16"></div>
+                    <div class="form-group"><label>单双周</label>
+                        <select id="f_weekType"><option>全周</option><option>单周</option><option>双周</option></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveSchedule">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/schedules.js"></script>
+</body>
+</html>

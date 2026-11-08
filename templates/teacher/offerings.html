@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的开课 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="sidebar">
+            <div class="logo">
+                <div class="logo-clip"><img src="/static/images/logo.png" alt="校徽"></div>
+                <div class="logo-text">
+                    <div class="logo-title">教务管理系统</div>
+                    <div class="logo-sub">教师端 · 贵阳信息科技学院</div>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item"><span>工作台</span></a>
+                <a href="offerings.html" class="nav-item"><span>我的开课</span></a>
+                <a href="offering-students.html" class="nav-item"><span>选课名单</span></a>
+                <a href="grades.html" class="nav-item"><span>成绩录入</span></a>
+                <a href="schedule.html" class="nav-item"><span>我的课表</span></a>
+                <a href="evaluations.html" class="nav-item"><span>评教结果</span></a>
+                <a href="profile.html" class="nav-item"><span>个人信息</span></a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="header">
+                <div class="header-title">贵阳信息科技学院 · 教务管理系统（教师端）</div>
+                <div class="user-info">
+                    <span id="userAvatar" style="display:inline-flex;align-items:center;margin-right:8px;"></span><span>欢迎，<strong id="userName">教师</strong></span>
+                    <div class="logout-btn" data-action="logout">退出登录</div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h2 class="page-title">我的开课</h2>
+                <div class="search-bar">
+                    <select id="semesterSel" style="min-width:180px;"></select>
+                    <button class="btn btn-primary" data-action="loadList">查询</button>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead><tr><th>课程号</th><th>课程名称</th><th>学分</th><th>学时</th><th>性质</th><th>选课人数</th><th>成绩比例</th><th>状态</th><th>操作</th></tr></thead>
+                            <tbody id="listBody"><tr><td colspan="9"><div class="loading"></div></td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ratioModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="ratioTitle">设置成绩比例</span><span class="modal-close" data-action="closeModal" data-arg='["ratioModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="ratioId">
+                <p id="ratioInfo" style="color:#555;margin-bottom:14px;"></p>
+                <div class="form-row">
+                    <div class="form-group"><label>平时占比 %</label><input type="number" id="f_usualRatio" value="40" min="0" max="100" step="1" data-input="syncRatio"></div>
+                    <div class="form-group"><label>考试占比 %</label><input type="number" id="f_examRatio" value="60" min="0" max="100" step="1" data-input="syncRatio"></div>
+                </div>
+                <p style="color:#888;font-size:13px;">总评成绩 = 平时成绩 × 平时占比 + 考试成绩 × 考试占比。</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["ratioModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveRatio">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/teacher.js"></script>
+    <script src="/js/pages/teacher/offerings.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+# ===== 千万不要提交/上传的文件 =====
+
+# 环境变量（含数据库密码）
+.env
+
+# 会话密钥（泄露会导致管理员会话可被伪造）
+.secret_key
+
+# 初始化标记
+.db_initialized
+
+# 依赖安装指纹（start.sh 用，避免每次启动重复 pip install）
+.deps_hash
+
+# 运行时产物
+__pycache__/
+*.pyc
+*.pyo
+logs/
+*.log
+flask_session/
+
+# 本地虚拟环境
+venv/
+.venv/
+
+# 测试
+.pytest_cache/
+tests/
+
+# 用户上传的头像
+static/uploads/avatar/*
+!static/uploads/avatar/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db

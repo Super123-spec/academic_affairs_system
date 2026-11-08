@@ -1,0 +1,17 @@
+
+Flask
+Werkzeug
+Jinja2
+itsdangerous
+click
+Flask-CORS
+Flask-Session
+cachelib
+msgspec
+PyMySQL
+DBUtils
+bcrypt
+openpyxl
+captcha
+Pillow
+cryptography

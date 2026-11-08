@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生个人信息维护 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div id="mustChangeTip" style="display:none;background:#fffbe6;border:1px solid #ffe58f;border-left:4px solid #d48806;border-radius:4px;padding:12px 18px;margin-bottom:16px;color:#ad6800;font-size:14px;">
+                ⚠ 首次登录请先修改下方密码，修改成功后才能正常使用系统
+            </div>
+            <div class="urp-panel">
+                <div class="urp-panel-title">学生个人信息维护</div>
+                <p style="color:#888;font-size:13px;margin-bottom:16px;">带 * 为可修改项，其他信息如需变更请联系教务处。</p>
+                <div class="avatar-upload" style="margin-bottom:20px;">
+                    <div class="avatar-preview" id="avatarPreview"><span id="avatarPreviewText">头像</span></div>
+                    <div class="avatar-actions">
+                        <button type="button" class="btn btn-primary" data-action="openAvatarUpload">修改头像</button>
+                        <span class="avatar-hint">仅学生本人可修改自己的头像</span>
+                    </div>
+                </div>
+                <div id="fixedInfo" style="margin-bottom:18px;"></div>
+                <form id="profileForm">
+                    <div class="form-row">
+                        <div class="form-group"><label>联系电话 *</label><input type="text" id="phone"></div>
+                        <div class="form-group"><label>电子邮箱 *</label><input type="email" id="email"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>政治面貌 *</label>
+                            <select id="political_status">
+                                <option>群众</option><option>共青团员</option><option>中共党员</option><option>中共预备党员</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>籍贯 *</label><input type="text" id="native_place"></div>
+                    </div>
+                    <div class="form-group"><label>家庭住址 *</label><input type="text" id="address"></div>
+                    <button type="submit" class="btn btn-primary">保存修改</button>
+                </form>
+            </div>
+
+            <div class="urp-panel">
+                <div class="urp-panel-title">修改密码</div>
+                <form id="pwForm">
+                    <div class="form-row">
+                        <div class="form-group"><label>原密码</label><input type="password" id="oldPw" required></div>
+                        <div class="form-group"><label>新密码（至少8位，且包含字母和数字）</label><input type="password" id="newPw" required></div>
+                    </div>
+                    <button type="submit" class="btn btn-default">修改密码</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/profile-edit.js"></script>
+</body>
+</html>

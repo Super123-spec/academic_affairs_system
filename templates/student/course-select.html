@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自主选课 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">自主选课</div>
+                <div class="search-bar">
+                    <input type="text" id="keyword" placeholder="搜索课程名称 / 课程号">
+                    <select id="typeSel">
+                        <option value="">全部性质</option><option>必修</option><option>选修</option><option>通识</option><option>实践</option>
+                    </select>
+                    <button class="btn btn-primary" data-action="renderList">筛选</button>
+                </div>
+                <div id="courseList"><div class="loading"></div></div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/course-select.js"></script>
+</body>
+</html>

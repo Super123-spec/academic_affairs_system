@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">学生管理</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <input type="text" id="keyword" placeholder="学号 / 姓名">
+                <select id="classSel"><option value="">全部班级</option></select>
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">新增学生</button>
+            <button class="btn btn-default" data-action="openImportDialog" data-arg='["student","学生","loadList"]'>批量导入</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>头像</th><th>学号</th><th>姓名</th><th>性别</th><th>班级</th><th>专业</th><th>学籍状态</th><th>账号</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="9"><div class="loading"></div></td></tr></tbody>
+            </table>
+            <div id="pager" style="display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:14px;"></div>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="modalTitle">新增学生</span><span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-group"><label>学号 *</label><input type="text" id="f_username"></div>
+                    <div class="form-group"><label>姓名 *</label><input type="text" id="f_realName"></div>
+                </div>
+                <div class="form-row" id="pwRow">
+                    <div class="form-group">
+                        <label>初始密码</label>
+                        <input type="text" id="f_password" value="123456" autocomplete="off">
+                        <p style="color:#888;font-size:12px;margin-top:5px;">默认 123456，学生登录后可自行修改；批量/新建均按此密码</p>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>性别</label><select id="f_gender"><option>男</option><option>女</option></select></div>
+                    <div class="form-group"><label>班级</label><select id="f_classId"><option value="">未分配</option></select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>联系电话</label><input type="text" id="f_phone"></div>
+                    <div class="form-group"><label>邮箱</label><input type="email" id="f_email"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>学籍状态</label>
+                        <select id="f_status"><option>在读</option><option>休学</option><option>复学</option><option>退学</option><option>毕业</option></select>
+                    </div>
+                    <div class="form-group"><label>账号状态</label>
+                        <select id="f_frozen"><option value="0">正常</option><option value="1">冻结</option></select>
+                    </div>
+                </div>
+                <div class="form-group" id="resetPwRow" style="display:none;">
+                    <label><input type="checkbox" id="f_resetPw" style="width:auto;"> 重置密码为 123456</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveStudent">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/students.js"></script>
+</body>
+</html>

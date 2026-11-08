@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操作日志 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+            <h2 class="page-title" style="margin-bottom:0;">操作日志</h2>
+            <button class="btn btn-danger" data-action="clearLogs">清空日志</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>对象</th><th>详情</th><th>IP</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="7"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/logs.js"></script>
+</body>
+</html>

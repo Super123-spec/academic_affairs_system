@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作台 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">工作台</h2>
+
+        <div class="stat-cards">
+            <div class="stat-card"><div class="stat-value" id="studentCount">-</div><div class="stat-label">在校学生</div></div>
+            <div class="stat-card success"><div class="stat-value" id="teacherCount">-</div><div class="stat-label">在职教师</div></div>
+            <div class="stat-card"><div class="stat-value" id="courseCount">-</div><div class="stat-label">课程总数</div></div>
+            <div class="stat-card warning"><div class="stat-value" id="offeringCount">-</div><div class="stat-label">本学期开课</div></div>
+            <div class="stat-card danger"><div class="stat-value" id="pendingCount">-</div><div class="stat-label">待审核申请</div></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">快捷操作</div>
+            <div class="card-body">
+                <a href="offerings.html" class="btn btn-primary" style="margin-right:10px;">开课管理</a>
+                <a href="schedules.html" class="btn btn-default" style="margin-right:10px;">排课管理</a>
+                <a href="reviews.html" class="btn btn-default" style="margin-right:10px;">申请审核</a>
+                <a href="announcements.html" class="btn btn-default" style="margin-right:10px;">发布公告</a>
+                <a href="students.html" class="btn btn-default">学生管理</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">最新公告</div>
+            <div class="card-body" id="announcements"><div class="loading"></div></div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/index.js"></script>
+</body>
+</html>

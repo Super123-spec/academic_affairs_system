@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教室管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">教室管理</h2>
+        <div class="toolbar">
+            <div></div>
+            <button class="btn btn-primary" data-action="addRoom">新增教室</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>教学楼</th><th>教室号</th><th>容量</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="4"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/classrooms.js"></script>
+</body>
+</html>

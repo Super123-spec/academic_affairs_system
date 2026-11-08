@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重修课程查询 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">不及格课程（需重修）</div>
+                <table class="table">
+                    <thead><tr><th>课程号</th><th>课程名称</th><th>学分</th><th>原学期</th><th>总评成绩</th></tr></thead>
+                    <tbody id="failedBody"><tr><td colspan="5"><div class="loading"></div></td></tr></tbody>
+                </table>
+            </div>
+            <div class="urp-panel">
+                <div class="urp-panel-title">本学期开设的重修班</div>
+                <table class="table">
+                    <thead><tr><th>课程名称</th><th>学分</th><th>任课教师</th><th>容量/已选</th></tr></thead>
+                    <tbody id="availBody"><tr><td colspan="4"><div class="loading"></div></td></tr></tbody>
+                </table>
+                <p style="margin-top:12px;color:#888;font-size:13px;">如需重修，请到「报名申请 - 重修报名」提交申请。</p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/retake-courses.js"></script>
+</body>
+</html>

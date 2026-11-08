@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>班级课表查询 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">班级课表查询</div>
+                <div class="search-bar">
+                    <select id="semesterSel" style="min-width:180px;"></select>
+                    <button class="btn btn-primary" data-action="loadSchedule">查询</button>
+                    <button class="btn btn-default" data-action="exportSchedule">导出课表</button>
+                </div>
+                <p style="color:#888;font-size:13px;margin-bottom:12px;">当前班级：<strong id="className">--</strong>（展示本班同学所选课程的全部上课安排）</p>
+                <div id="scheduleBox"><div class="loading"></div></div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/class-schedule.js"></script>
+</body>
+</html>

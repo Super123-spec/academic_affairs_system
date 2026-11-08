@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生自主报到注册 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">学生自主报到注册</div>
+                <div id="regBox" style="max-width:560px;"><div class="loading"></div></div>
+            </div>
+            <div class="urp-panel">
+                <div class="urp-panel-title">历史注册记录</div>
+                <table class="table">
+                    <thead><tr><th>学期</th><th>注册时间</th><th>状态</th></tr></thead>
+                    <tbody id="recordBody"><tr><td colspan="3"><div class="loading"></div></td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/registration.js"></script>
+</body>
+</html>

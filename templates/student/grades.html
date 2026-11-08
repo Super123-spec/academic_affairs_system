@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生成绩查询 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">学生成绩查询</div>
+                <div class="search-bar">
+                    <select id="semesterSel" style="min-width:180px;"></select>
+                    <button class="btn btn-primary" data-action="loadGrades">查询</button>
+                </div>
+                <table class="table">
+                    <thead><tr>
+                        <th>课程号</th><th>课程名称</th><th>学分</th><th>课程性质</th><th>学期</th>
+                        <th>平时成绩</th><th>考试成绩</th><th>总评成绩</th><th>绩点</th><th>备注</th>
+                    </tr></thead>
+                    <tbody id="gradeBody"><tr><td colspan="10"><div class="loading"></div></td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/grades.js"></script>
+</body>
+</html>

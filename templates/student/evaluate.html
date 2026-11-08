@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生评价 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .score-row { display: flex; align-items: center; margin-bottom: 12px; }
+        .score-row .score-label { width: 90px; color: #444; }
+        .star-group { display: flex; gap: 6px; }
+        .star-group input { display: none; }
+        .star-group label {
+            width: 30px; height: 30px; line-height: 30px; text-align: center; cursor: pointer;
+            border: 1px solid #d1d5db; border-radius: 4px; font-size: 13px; color: #666; transition: 0.15s;
+        }
+        .star-group label:hover, .star-group label.active { background: #1976d2; color: #fff; border-color: #1976d2; }
+    </style>
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">学生评价（期末评教）</div>
+                <div id="evalList"><div class="loading"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="evalModal">
+        <div class="modal-content">
+            <div class="modal-header">评价课程：<span id="evalCourseName"></span><span class="modal-close" data-action="closeModal">✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="evalOfferingId">
+                <div class="score-row"><div class="score-label">教学态度</div><div class="star-group" data-field="score_teaching"></div></div>
+                <div class="score-row"><div class="score-label">教学内容</div><div class="star-group" data-field="score_content"></div></div>
+                <div class="score-row"><div class="score-label">教学方法</div><div class="star-group" data-field="score_method"></div></div>
+                <div class="score-row"><div class="score-label">教学效果</div><div class="star-group" data-field="score_effect"></div></div>
+                <div class="form-group" style="margin-top:14px;">
+                    <label>评语（选填）</label>
+                    <textarea id="evalComment" rows="3" placeholder="对课程和老师的建议..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal">取消</button>
+                <button class="btn btn-primary" data-action="submitEval">提交评价</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/evaluate.js"></script>
+</body>
+</html>

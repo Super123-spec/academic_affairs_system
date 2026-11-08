@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学执行计划 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">教学执行计划</h2>
+        <div class="toolbar">
+            <div class="search-bar" style="margin-bottom:0;flex:1;">
+                <select id="majorSel" style="min-width:240px;"></select>
+                <button class="btn btn-primary" data-action="loadList">查询</button>
+            </div>
+            <button class="btn btn-primary" data-action="openEdit">添加课程</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <div id="summary" style="color:#666;font-size:13px;margin-bottom:12px;"></div>
+            <table class="table">
+                <thead><tr><th>专业</th><th>开课学期</th><th>课程号</th><th>课程名称</th><th>学分</th><th>学时</th><th>课程性质</th><th>计划类别</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="9"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/teaching-plans.js"></script>
+</body>
+</html>

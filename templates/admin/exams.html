@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>考试安排 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">考试安排</h2>
+        <div class="toolbar">
+            <div></div>
+            <button class="btn btn-primary" data-action="openModal" data-arg='["editModal"]'>新增考试安排</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>课程</th><th>学期</th><th>类型</th><th>日期</th><th>时间</th><th>考场</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="7"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">新增考试安排<span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <div class="form-group"><label>开课（教学班）*</label><select id="f_offeringId"></select></div>
+                <div class="form-row">
+                    <div class="form-group"><label>考试日期 *</label><input type="date" id="f_date"></div>
+                    <div class="form-group"><label>类型</label>
+                        <select id="f_type"><option>期末</option><option>期中</option><option>补考</option></select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>开始时间</label><input type="time" id="f_start"></div>
+                    <div class="form-group"><label>结束时间</label><input type="time" id="f_end"></div>
+                </div>
+                <div class="form-group"><label>考场</label><select id="f_classroomId"><option value="">待定</option></select></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveExam">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/exams.js"></script>
+</body>
+</html>

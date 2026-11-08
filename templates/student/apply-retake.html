@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重修报名 - 教务管理系统</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="urp-body">
+        <div class="urp-main">
+            <div class="urp-panel">
+                <div class="urp-panel-title">重修报名</div>
+                <form id="applyForm" style="max-width:560px;">
+                    <div class="form-group"><label>重修课程</label>
+                        <select id="courseSel"></select>
+                    </div>
+                    <div class="form-group"><label>报名说明</label>
+                        <textarea id="reason" rows="3" placeholder="选填"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">提交报名</button>
+                </form>
+            </div>
+            <div class="urp-panel">
+                <div class="urp-panel-title">我的重修报名记录</div>
+                <table class="table">
+                    <thead><tr><th>课程</th><th>学期</th><th>说明</th><th>状态</th><th>审核意见</th><th>报名时间</th></tr></thead>
+                    <tbody id="recordBody"><tr><td colspan="6"><div class="loading"></div></td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/student.js"></script>
+    <script src="/js/pages/student/apply-retake.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告管理 - 教务管理后台</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="content" id="pageContent">
+        <h2 class="page-title">公告管理</h2>
+        <div class="toolbar">
+            <div></div>
+            <button class="btn btn-primary" data-action="openEdit">发布公告</button>
+        </div>
+        <div class="card"><div class="card-body">
+            <table class="table">
+                <thead><tr><th>标题</th><th>置顶</th><th>状态</th><th>发布时间</th><th>操作</th></tr></thead>
+                <tbody id="listBody"><tr><td colspan="5"><div class="loading"></div></td></tr></tbody>
+            </table>
+        </div></div>
+    </div>
+
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header"><span id="modalTitle">发布公告</span><span class="modal-close" data-action="closeModal" data-arg='["editModal"]'>✕</span></div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="form-group"><label>标题 *</label><input type="text" id="f_title"></div>
+                <div class="form-group"><label>内容 *</label><textarea id="f_content" rows="6"></textarea></div>
+                <div class="form-row">
+                    <div class="form-group"><label>是否置顶</label>
+                        <select id="f_top"><option value="0">否</option><option value="1">是</option></select>
+                    </div>
+                    <div class="form-group" id="activeRow" style="display:none;"><label>状态</label>
+                        <select id="f_active"><option value="1">发布</option><option value="0">下线</option></select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-action="closeModal" data-arg='["editModal"]'>取消</button>
+                <button class="btn btn-primary" data-action="saveAnn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+    <script src="/js/pages/admin/announcements.js"></script>
+</body>
+</html>
